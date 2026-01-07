@@ -1,0 +1,1612 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Samuel Ojedele - Backend Developer</title>
+    <link rel="icon" type="image/png" href="ProfilePic.png" />
+    <link rel="apple-touch-icon" href="ProfilePic.png" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        scroll-behavior: smooth;
+      }
+
+      :root {
+        --primary: #2563eb;
+        --secondary: #1e40af;
+        --dark: #0f172a;
+        --light: #f8fafc;
+        --text: #334155;
+        --accent: #10b981;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: var(--text);
+        background: var(--light);
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      /* Navigation Bar */
+      nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        background: var(--dark);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        z-index: 10000;
+        padding: 15px 0;
+      }
+
+      .nav-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .nav-logo {
+        color: white;
+        font-size: 1.5rem;
+        font-weight: bold;
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+
+      .nav-logo:hover {
+        color: var(--accent);
+      }
+
+      .nav-logo span {
+        color: var(--accent);
+      }
+
+      .nav-menu {
+        display: flex;
+        list-style: none;
+        gap: 30px;
+        margin: 0;
+        padding: 0;
+      }
+
+      .nav-menu li a {
+        color: white;
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.3s ease;
+        padding: 5px 10px;
+      }
+
+      .nav-menu li a:hover {
+        color: var(--accent);
+      }
+
+      .nav-toggle {
+        display: none;
+        background: none;
+        border: none;
+        color: white;
+        font-size: 2rem;
+        cursor: pointer;
+        padding: 5px 10px;
+        transition: color 0.3s ease;
+      }
+
+      .nav-toggle:hover {
+        color: var(--accent);
+      }
+
+      .nav-toggle:focus {
+        outline: none;
+      }
+
+      /* Header/Hero */
+      header {
+        background: linear-gradient(
+          135deg,
+          var(--dark) 0%,
+          var(--secondary) 100%
+        );
+        color: white;
+        padding: 80px 0;
+        text-align: center;
+      }
+
+      .hero-content h1 {
+        font-size: 3rem;
+        margin-bottom: 10px;
+        animation: fadeInDown 0.8s ease;
+      }
+
+      .profile-picture {
+        width: 200px;
+        height: 200px;
+        margin: 0 auto 30px;
+        border-radius: 50%;
+        overflow: hidden;
+        border: 5px solid white;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        animation: fadeIn 0.8s ease;
+      }
+
+      .profile-picture img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .hero-content .subtitle {
+        font-size: 1.4rem;
+        color: #cbd5e1;
+        margin-bottom: 30px;
+        animation: fadeInUp 0.8s ease;
+      }
+
+      .hero-content .tagline {
+        font-size: 1.1rem;
+        color: #94a3b8;
+        max-width: 700px;
+        margin: 0 auto 40px;
+        animation: fadeIn 1s ease;
+      }
+
+      .cta-buttons {
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        flex-wrap: wrap;
+        animation: fadeInUp 1.2s ease;
+      }
+
+      .btn {
+        padding: 12px 30px;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .btn-primary {
+        background: var(--accent);
+        color: white;
+      }
+
+      .btn-primary:hover {
+        background: #059669;
+        transform: translateY(-2px);
+        box-shadow: 0 10px 20px rgba(16, 185, 129, 0.3);
+      }
+
+      .btn-secondary {
+        background: transparent;
+        color: white;
+        border: 2px solid white;
+      }
+
+      .btn-secondary:hover {
+        background: white;
+        color: var(--dark);
+        transform: translateY(-2px);
+      }
+
+      /* About Section */
+      .about {
+        padding: 80px 0;
+        background: white;
+      }
+
+      .section-title {
+        font-size: 2.5rem;
+        text-align: center;
+        margin-bottom: 20px;
+        color: var(--dark);
+      }
+
+      .section-subtitle {
+        text-align: center;
+        color: var(--text);
+        margin-bottom: 50px;
+        font-size: 1.1rem;
+      }
+
+      .about-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 50px;
+        align-items: center;
+      }
+
+      .about-text p {
+        margin-bottom: 20px;
+        line-height: 1.8;
+      }
+
+      .stats {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+        margin-top: 40px;
+      }
+
+      .stat-card {
+        text-align: center;
+        padding: 30px;
+        background: var(--light);
+        border-radius: 12px;
+        transition: transform 0.3s ease;
+      }
+
+      .stat-card:hover {
+        transform: translateY(-5px);
+      }
+
+      .stat-number {
+        font-size: 2.5rem;
+        font-weight: bold;
+        color: var(--primary);
+      }
+
+      .stat-label {
+        color: var(--text);
+        font-size: 0.9rem;
+      }
+
+      /* Skills Section */
+      .skills {
+        padding: 80px 0;
+        background: var(--light);
+      }
+
+      .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+        margin-top: 50px;
+      }
+
+      .skill-category {
+        background: white;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .skill-category:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+      }
+
+      .skill-category h3 {
+        color: var(--primary);
+        margin-bottom: 20px;
+        font-size: 1.4rem;
+      }
+
+      .skill-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .skill-tag {
+        background: var(--light);
+        padding: 8px 16px;
+        border-radius: 20px;
+        font-size: 0.9rem;
+        color: var(--text);
+        border: 1px solid #e2e8f0;
+      }
+
+      /* Experience Section */
+      .experience {
+        padding: 80px 0;
+        background: white;
+      }
+
+      .timeline {
+        position: relative;
+        max-width: 900px;
+        margin: 50px auto;
+      }
+
+      .timeline::before {
+        content: "";
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 2px;
+        height: 100%;
+        background: var(--primary);
+      }
+
+      .timeline-item {
+        margin-bottom: 50px;
+        position: relative;
+      }
+
+      .timeline-content {
+        background: var(--light);
+        padding: 30px;
+        border-radius: 12px;
+        width: 45%;
+        position: relative;
+      }
+
+      .timeline-item:nth-child(odd) .timeline-content {
+        margin-left: auto;
+      }
+
+      .timeline-content h3 {
+        color: var(--primary);
+        font-size: 1.4rem;
+        margin-bottom: 10px;
+      }
+
+      .timeline-content .company {
+        color: var(--text);
+        font-weight: 600;
+        margin-bottom: 5px;
+      }
+
+      .timeline-content .period {
+        color: #64748b;
+        font-size: 0.9rem;
+        margin-bottom: 20px;
+      }
+
+      .timeline-content ul {
+        list-style: none;
+        padding-left: 0;
+      }
+
+      .timeline-content li {
+        padding-left: 25px;
+        position: relative;
+        margin-bottom: 10px;
+      }
+
+      .timeline-content li::before {
+        content: "▹";
+        position: absolute;
+        left: 0;
+        color: var(--accent);
+        font-weight: bold;
+      }
+
+      /* Projects Section */
+      .projects {
+        padding: 80px 0;
+        background: var(--light);
+      }
+
+      .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 30px;
+        margin-top: 50px;
+      }
+
+      .project-card {
+        background: white;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .project-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+      }
+
+      .project-header {
+        background: linear-gradient(135deg, var(--primary), var(--secondary));
+        color: white;
+        padding: 30px;
+      }
+
+      .project-header h3 {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+      }
+
+      .project-body {
+        padding: 25px;
+      }
+
+      .project-body p {
+        color: var(--text);
+        margin-bottom: 20px;
+      }
+
+      .tech-stack {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-bottom: 20px;
+      }
+
+      .tech-badge {
+        background: var(--primary);
+        color: white;
+        padding: 4px 12px;
+        border-radius: 12px;
+        font-size: 0.8rem;
+      }
+
+      .project-links {
+        display: flex;
+        gap: 15px;
+      }
+
+      .project-link {
+        color: var(--primary);
+        text-decoration: none;
+        font-weight: 600;
+        transition: color 0.3s ease;
+      }
+
+      .project-link:hover {
+        color: var(--secondary);
+      }
+
+      /* Contact Section */
+      .contact {
+        padding: 80px 0;
+        background: var(--dark);
+        color: white;
+        text-align: center;
+      }
+
+      .contact-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 30px;
+        margin-top: 50px;
+      }
+
+      .contact-card {
+        background: rgba(255, 255, 255, 0.1);
+        padding: 30px;
+        border-radius: 12px;
+        transition: background 0.3s ease;
+      }
+
+      .contact-card:hover {
+        background: rgba(255, 255, 255, 0.15);
+      }
+
+      .contact-icon {
+        font-size: 2rem;
+        margin-bottom: 15px;
+      }
+
+      .contact-card h3 {
+        margin-bottom: 10px;
+        color: var(--accent);
+      }
+
+      .contact-card a {
+        color: white;
+        text-decoration: none;
+      }
+
+      .contact-card a:hover {
+        color: var(--accent);
+      }
+
+      /* Teaching Section */
+      .teaching {
+        padding: 80px 0;
+        background: white;
+      }
+
+      .teaching-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+        gap: 30px;
+        margin-top: 50px;
+      }
+
+      .curriculum-card {
+        background: var(--light);
+        padding: 40px;
+        border-radius: 12px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .curriculum-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+      }
+
+      .curriculum-icon {
+        font-size: 3rem;
+        margin-bottom: 20px;
+      }
+
+      .curriculum-card h3 {
+        color: var(--primary);
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+      }
+
+      .curriculum-card p {
+        margin-bottom: 15px;
+        line-height: 1.8;
+      }
+
+      .curriculum-card ul {
+        list-style: none;
+        padding-left: 0;
+      }
+
+      .curriculum-card li {
+        padding-left: 25px;
+        position: relative;
+        margin-bottom: 12px;
+        line-height: 1.6;
+      }
+
+      .curriculum-card li::before {
+        content: "✓";
+        position: absolute;
+        left: 0;
+        color: var(--accent);
+        font-weight: bold;
+      }
+
+      .lesson-plan {
+        margin-top: 20px;
+        padding: 20px;
+        background: white;
+        border-radius: 8px;
+        border-left: 4px solid var(--primary);
+      }
+
+      .lesson-plan p {
+        margin-bottom: 10px;
+        font-weight: 600;
+        color: var(--secondary);
+      }
+
+      .lesson-plan ul {
+        margin-bottom: 15px;
+      }
+
+      /* Testimonials Section */
+      .testimonials {
+        padding: 80px 0;
+        background: var(--dark);
+      }
+
+      .testimonials-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 30px;
+        margin-top: 50px;
+      }
+
+      .testimonial-card {
+        background: rgba(255, 255, 255, 0.05);
+        padding: 40px;
+        border-radius: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        transition: all 0.3s ease;
+      }
+
+      .testimonial-card:hover {
+        background: rgba(255, 255, 255, 0.08);
+        transform: translateY(-5px);
+        border-color: var(--accent);
+      }
+
+      .quote-icon {
+        font-size: 4rem;
+        color: var(--accent);
+        line-height: 0.5;
+        margin-bottom: 20px;
+      }
+
+      .testimonial-text {
+        color: #e2e8f0;
+        font-size: 1.05rem;
+        line-height: 1.8;
+        margin-bottom: 25px;
+        font-style: italic;
+      }
+
+      .testimonial-author {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        padding-top: 20px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .author-info h4 {
+        color: white;
+        margin-bottom: 5px;
+        font-size: 1.1rem;
+      }
+
+      .author-info p {
+        color: #94a3b8;
+        font-size: 0.9rem;
+        margin-bottom: 3px;
+      }
+
+      .student-outcome {
+        color: var(--accent) !important;
+        font-weight: 600;
+      }
+
+      .reference-contact {
+        color: #cbd5e1 !important;
+        font-style: italic;
+      }
+
+      /* Gallery Section */
+      .gallery {
+        padding: 80px 0;
+        background: white;
+      }
+
+      .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 25px;
+        margin-top: 50px;
+      }
+
+      .gallery-item {
+        position: relative;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        height: 300px;
+      }
+
+      .gallery-item:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+      }
+
+      .gallery-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+      }
+
+      .gallery-item:hover img {
+        transform: scale(1.1);
+      }
+
+      .gallery-overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+        padding: 20px;
+        transform: translateY(100%);
+        transition: transform 0.3s ease;
+      }
+
+      .gallery-item:hover .gallery-overlay {
+        transform: translateY(0);
+      }
+
+      .gallery-overlay p {
+        color: white;
+        font-size: 1.1rem;
+        font-weight: 600;
+        margin: 0;
+      }
+
+      /* Footer */
+      footer {
+        background: #020617;
+        color: #94a3b8;
+        text-align: center;
+        padding: 30px 0;
+      }
+
+      /* Animations */
+      @keyframes fadeInDown {
+        from {
+          opacity: 0;
+          transform: translateY(-30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .hero-content h1 {
+          font-size: 2rem;
+        }
+
+        .profile-picture {
+          width: 150px;
+          height: 150px;
+        }
+
+        .about-content {
+          grid-template-columns: 1fr;
+        }
+
+        .stats {
+          grid-template-columns: 1fr;
+        }
+
+        .timeline::before {
+          left: 0;
+        }
+
+        .timeline-content {
+          width: 100%;
+          margin-left: 30px !important;
+        }
+
+        .projects-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .teaching-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .testimonials-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .gallery-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .cta-buttons {
+          flex-direction: column;
+        }
+
+        .btn {
+          width: 100%;
+          justify-content: center;
+        }
+      }
+      @media (max-width: 968px) {
+        body {
+          padding-top: 60px;
+        }
+
+        nav {
+          padding: 10px 0;
+        }
+
+        .nav-toggle {
+          display: block;
+        }
+
+        .nav-menu {
+          position: absolute;
+          top: 100%;
+          left: 0;
+          right: 0;
+          background: var(--dark);
+          flex-direction: column;
+          gap: 0;
+          max-height: 0;
+          overflow: hidden;
+          transition: max-height 0.3s ease;
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-menu.active {
+          max-height: 500px;
+        }
+
+        .nav-menu li {
+          border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-menu li:last-child {
+          border-bottom: none;
+        }
+
+        .nav-menu li a {
+          display: block;
+          padding: 15px 20px;
+        }
+
+        .hero-content h1 {
+          font-size: 2rem;
+        }
+
+        .profile-picture {
+          width: 150px;
+          height: 150px;
+        }
+
+        .about-content {
+          grid-template-columns: 1fr;
+        }
+
+        .stats {
+          grid-template-columns: 1fr;
+        }
+
+        .cta-buttons {
+          flex-direction: column;
+        }
+
+        .btn {
+          width: 100%;
+          justify-content: center;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .nav-logo {
+          font-size: 1.3rem;
+        }
+
+        .hero-content h1 {
+          font-size: 1.5rem;
+        }
+
+        .hero-content .subtitle {
+          font-size: 1.1rem;
+        }
+
+        .section-title {
+          font-size: 2rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation Bar -->
+    <nav>
+      <div class="nav-container">
+        <a href="#" class="nav-logo">STO<span>.</span></a>
+        <button class="nav-toggle" onclick="toggleMenu()">☰</button>
+        <ul class="nav-menu" id="navMenu">
+          <li><a href="#about" onclick="closeMenu()">About</a></li>
+          <li><a href="#skills" onclick="closeMenu()">Skills</a></li>
+          <li><a href="#experience" onclick="closeMenu()">Experience</a></li>
+          <li><a href="#projects" onclick="closeMenu()">Projects</a></li>
+          <li><a href="#contact" onclick="closeMenu()">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+    <!-- Header/Hero -->
+    <header>
+      <div class="container">
+        <div class="hero-content">
+          <div class="profile-picture">
+            <img
+              src="ProfilePic.png"
+              alt="Samuel Ojedele"
+              onerror="this.src='https://via.placeholder.com/200x200/2563eb/ffffff?text=SO'"
+            />
+          </div>
+          <h1>Samuel Toluwani Ojedele</h1>
+          <p class="subtitle">
+            Backend Developer & Software Engineering Instructor
+          </p>
+          <p class="tagline">
+            Building scalable server-side applications with 3+ years of
+            experience. Passionate about creating production-ready systems that
+            are robust, secure, and easy to scale.
+          </p>
+          <div class="cta-buttons">
+            <a href="#contact" class="btn btn-primary">Get In Touch</a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+      <div class="container">
+        <h2 class="section-title">About Me</h2>
+        <p class="section-subtitle">
+          Turning ideas into scalable backend solutions
+        </p>
+
+        <div class="about-content">
+          <div class="about-text">
+            <p>
+              I'm a Backend Developer with a proven track record of designing
+              and implementing scalable server-side applications. My expertise
+              spans across modern backend technologies including Node.js,
+              Express.js, NestJS, and database management with PostgreSQL and
+              MongoDB.
+            </p>
+
+            <p>
+              Currently, I combine my development experience with teaching,
+              having trained over 50 students in full-stack development at
+              Aptech Computer Education. This dual role allows me to stay at the
+              cutting edge of technology while helping shape the next generation
+              of developers.
+            </p>
+
+            <p>
+              My approach focuses on building systems that are not just
+              functional, but optimized for performance, security, and
+              scalability. I believe in writing clean, maintainable code and
+              following industry best practices.
+            </p>
+          </div>
+
+          <div class="stats">
+            <div class="stat-card">
+              <div class="stat-number">3+</div>
+              <div class="stat-label">Years Experience</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number">50+</div>
+              <div class="stat-label">Students Trained</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number">5+</div>
+              <div class="stat-label">Projects Delivered</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="skills" id="skills">
+      <div class="container">
+        <h2 class="section-title">Technical Skills</h2>
+        <p class="section-subtitle">My technology stack and expertise</p>
+
+        <div class="skills-grid">
+          <div class="skill-category">
+            <h3>Backend Development</h3>
+            <div class="skill-tags">
+              <span class="skill-tag">Node.js</span>
+              <span class="skill-tag">Express.js</span>
+              <span class="skill-tag">NestJS</span>
+              <span class="skill-tag">Django</span>
+              <span class="skill-tag">RESTful APIs</span>
+              <span class="skill-tag">WebSockets</span>
+              <span class="skill-tag">Socket.io</span>
+            </div>
+          </div>
+
+          <div class="skill-category">
+            <h3>Programming Languages</h3>
+            <div class="skill-tags">
+              <span class="skill-tag">JavaScript</span>
+              <span class="skill-tag">TypeScript</span>
+              <span class="skill-tag">Python</span>
+              <span class="skill-tag">Java</span>
+              <span class="skill-tag">C</span>
+              <span class="skill-tag">SQL</span>
+            </div>
+          </div>
+
+          <div class="skill-category">
+            <h3>Databases</h3>
+            <div class="skill-tags">
+              <span class="skill-tag">MongoDB</span>
+              <span class="skill-tag">PostgreSQL</span>
+              <span class="skill-tag">MySQL</span>
+              <span class="skill-tag">Redis</span>
+            </div>
+          </div>
+
+          <div class="skill-category">
+            <h3>DevOps & Tools</h3>
+            <div class="skill-tags">
+              <span class="skill-tag">Docker</span>
+              <span class="skill-tag">Git</span>
+              <span class="skill-tag">GitHub Actions</span>
+              <span class="skill-tag">Jenkins</span>
+              <span class="skill-tag">Heroku</span>
+              <span class="skill-tag">AWS/GCP</span>
+            </div>
+          </div>
+
+          <div class="skill-category">
+            <h3>Message Queues</h3>
+            <div class="skill-tags">
+              <span class="skill-tag">RabbitMQ</span>
+              <span class="skill-tag">BullMQ</span>
+            </div>
+          </div>
+
+          <div class="skill-category">
+            <h3>Other Tools</h3>
+            <div class="skill-tags">
+              <span class="skill-tag">JWT Auth</span>
+              <span class="skill-tag">Swagger</span>
+              <span class="skill-tag">CI/CD</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="experience" id="experience">
+      <div class="container">
+        <h2 class="section-title">Work Experience</h2>
+        <p class="section-subtitle">My professional journey</p>
+
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <h3>Backend Developer (Remote)</h3>
+              <div class="company">MyFund</div>
+              <div class="period">2022 - 2025</div>
+              <ul>
+                <li>
+                  Developed backend systems focusing on scalability and
+                  performance, improving API response time by 30%
+                </li>
+                <li>Designed RESTful APIs that reduced latency by 25%</li>
+                <li>
+                  Optimized databases (PostgreSQL, MongoDB) improving data
+                  retrieval speeds by 40%
+                </li>
+                <li>
+                  Collaborated with frontend teams to launch 3 major digital
+                  products
+                </li>
+                <li>
+                  Reduced server response time by 80% through performance tuning
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <h3>Software Engineering Instructor</h3>
+              <div class="company">Aptech Computer Education</div>
+              <div class="period">2024 - 2025</div>
+              <ul>
+                <li>
+                  Delivered full-stack training to 50+ students with 85%
+                  certification pass rate
+                </li>
+                <li>Guided students through 20+ full-stack web applications</li>
+                <li>
+                  Led weekly coding workshops achieving 95% student satisfaction
+                </li>
+                <li>
+                  Updated curriculum for 6 major topics aligned with industry
+                  trends
+                </li>
+                <li>
+                  Reduced query resolution time by 50% through structured
+                  mentoring
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <h3>Software Developer (Intern)</h3>
+              <div class="company">TIIDELab Initiative</div>
+              <div class="period">2022 - 2023</div>
+              <ul>
+                <li>
+                  Built server-side applications using Node.js, improving
+                  performance by 20%
+                </li>
+                <li>
+                  Developed RESTful APIs reducing service communication time by
+                  30%
+                </li>
+                <li>
+                  Contributed to data-driven apps supporting 1000+ active users
+                </li>
+                <li>
+                  Participated in code reviews, increasing code quality by 25%
+                </li>
+                <li>Reduced critical bugs by 40% within first 3 months</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects" id="projects">
+      <div class="container">
+        <h2 class="section-title">Featured Projects</h2>
+        <p class="section-subtitle">Some of my notable work</p>
+
+        <div class="projects-grid">
+          <div class="project-card">
+            <div class="project-header">
+              <h3>Real-Time Chat Application Backend</h3>
+            </div>
+            <div class="project-body">
+              <p>
+                A real-time chat server built with NestJS and Socket.io,
+                designed with a modular architecture for scalability and
+                maintainability. Features WebSocket connections for instant
+                messaging.
+              </p>
+              <div class="tech-stack">
+                <span class="tech-badge">NestJS</span>
+                <span class="tech-badge">Socket.io</span>
+                <span class="tech-badge">TypeScript</span>
+                <span class="tech-badge">WebSockets</span>
+              </div>
+              <div class="project-links">
+                <a
+                  href="https://github.com/samuelojedele/Chat-App-Backend"
+                  target="_blank"
+                  class="project-link"
+                  >View Code →</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-header">
+              <h3>Book Management System</h3>
+            </div>
+            <div class="project-body">
+              <p>
+                Backend system to manage books, authors, and user
+                borrowing/lending operations. Implemented comprehensive CRUD
+                APIs for books and authors with robust data validation.
+              </p>
+              <div class="tech-stack">
+                <span class="tech-badge">NestJS</span>
+                <span class="tech-badge">TypeScript</span>
+                <span class="tech-badge">RESTful API</span>
+                <span class="tech-badge">Database</span>
+              </div>
+              <div class="project-links">
+                <a
+                  href="https://github.com/samuelojedele/Book-Mangement-System"
+                  target="_blank"
+                  class="project-link"
+                  >View Code →</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Teaching & Curriculum Section -->
+    <section class="teaching" id="teaching">
+      <div class="container">
+        <h2 class="section-title">Teaching & Curriculum Development</h2>
+        <p class="section-subtitle">
+          Empowering the next generation of backend developers
+        </p>
+
+        <div class="teaching-grid">
+          <div class="curriculum-card">
+            <div class="curriculum-icon">📚</div>
+            <h3>Backend Development Curriculum</h3>
+            <p>Comprehensive 12-week program covering:</p>
+            <ul>
+              <li>
+                Introduction to Server-Side Programming (Node.js fundamentals)
+              </li>
+              <li>RESTful API Design & Best Practices</li>
+              <li>Database Design & Management (SQL & NoSQL)</li>
+              <li>Authentication & Authorization (JWT, OAuth)</li>
+              <li>Real-Time Applications (WebSockets, Socket.io)</li>
+              <li>API Security & Performance Optimization</li>
+              <li>Testing & Deployment Strategies</li>
+              <li>Microservices Architecture Basics</li>
+            </ul>
+          </div>
+
+          <div class="curriculum-card">
+            <div class="curriculum-icon">🎯</div>
+            <h3>Teaching Methodology</h3>
+            <p>My approach to effective technical education:</p>
+            <ul>
+              <li>
+                <strong>Project-Based Learning:</strong> Students build 5+
+                real-world projects
+              </li>
+              <li>
+                <strong>Hands-On Coding:</strong> 70% practical, 30% theory
+                ratio
+              </li>
+              <li>
+                <strong>Code Reviews:</strong> Weekly peer and instructor
+                reviews
+              </li>
+              <li>
+                <strong>Industry Standards:</strong> Teaching current best
+                practices used in production
+              </li>
+              <li>
+                <strong>Mentorship:</strong> One-on-one support for struggling
+                students
+              </li>
+              <li>
+                <strong>Portfolio Development:</strong> Each student graduates
+                with deployable projects
+              </li>
+            </ul>
+          </div>
+
+          <div class="curriculum-card">
+            <div class="curriculum-icon">💼</div>
+            <h3>Sample Student Projects</h3>
+            <p>Real projects students built under my guidance:</p>
+            <ul>
+              <li>
+                <strong>E-Learning Platform API:</strong> Student built complete
+                backend with authentication, course management, and payment
+                integration
+              </li>
+              <li>
+                <strong>Social Media Backend:</strong> REST API with user
+                profiles, posts, comments, likes, and real-time notifications
+              </li>
+              <li>
+                <strong>Inventory Management System:</strong> CRUD operations,
+                reporting, and stock alerts for retail business
+              </li>
+              <li>
+                <strong>Blog Platform:</strong> Full-featured backend with
+                markdown support, categories, tags, and comments
+              </li>
+              <li>
+                <strong>Task Tracker API:</strong> Team collaboration tool with
+                role-based access and WebSocket updates
+              </li>
+            </ul>
+          </div>
+
+          <div class="curriculum-card">
+            <div class="curriculum-icon">🎓</div>
+            <h3>Lesson Plan Example: RESTful APIs</h3>
+            <div class="lesson-plan">
+              <p><strong>Duration:</strong> 4 weeks (12 sessions)</p>
+              <p><strong>Week 1:</strong> REST Principles & HTTP Methods</p>
+              <ul style="margin-left: 20px">
+                <li>Understanding REST architecture</li>
+                <li>HTTP methods (GET, POST, PUT, DELETE, PATCH)</li>
+                <li>Status codes and their meanings</li>
+                <li>Project: Build a simple CRUD API for a Todo app</li>
+              </ul>
+              <p>
+                <strong>Week 2:</strong> Request/Response Handling & Validation
+              </p>
+              <ul style="margin-left: 20px">
+                <li>Request body, params, and query parameters</li>
+                <li>Data validation and sanitization</li>
+                <li>Error handling patterns</li>
+                <li>Project: Add validation and error handling to Todo API</li>
+              </ul>
+              <p><strong>Week 3:</strong> Authentication & Authorization</p>
+              <ul style="margin-left: 20px">
+                <li>JWT token implementation</li>
+                <li>Middleware for protected routes</li>
+                <li>Role-based access control</li>
+                <li>Project: Secure the API with authentication</li>
+              </ul>
+              <p><strong>Week 4:</strong> Best Practices & Documentation</p>
+              <ul style="margin-left: 20px">
+                <li>API versioning strategies</li>
+                <li>Rate limiting and pagination</li>
+                <li>Swagger/OpenAPI documentation</li>
+                <li>Final Project: Fully documented, production-ready API</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+      <div class="container">
+        <h2 class="section-title" style="color: white">What People Say</h2>
+        <p class="section-subtitle" style="color: #cbd5e1">
+          Testimonials from students, colleagues, and mentors
+        </p>
+
+        <div class="testimonials-grid">
+          <div class="testimonial-card">
+            <div class="quote-icon">"</div>
+            <p class="testimonial-text">
+              Mr. Samuel is a great teacher. I know it may sound cheesy, but he
+              truly made a positive impact on me. He ensured that every student
+              participated in class, valued our opinions even in the smallest
+              discussions, and always created a comfortable learning
+              environment. Although I didn't spend a long time with him as my
+              teacher, his influence stayed with me.
+            </p>
+            <div class="testimonial-author">
+              <div class="author-info">
+                <h4>Olajide Toluwalope Mary</h4>
+                <p>Former Student, Aptech Computer Education</p>
+                <p class="student-outcome">
+                  Now a 300-level student at Anchor University
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="quote-icon">"</div>
+            <p class="testimonial-text">
+              Working with Samuel at MyFund was a great experience. His ability
+              to design scalable backend systems while mentoring junior
+              developers is remarkable. He writes clean, maintainable code and
+              always thinks about performance optimization.
+            </p>
+            <div class="testimonial-author">
+              <div class="author-info">
+                <h4>Dr. Tolulope Ahmed</h4>
+                <p>CEO, MyFund</p>
+                <p class="reference-contact">Reference Available</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="quote-icon">"</div>
+            <p class="testimonial-text">
+              I came to Samuel's class with zero programming experience. His
+              patience and structured curriculum helped me build 5 projects in
+              12 weeks. The weekly code reviews taught me best practices that I
+              still use today. He genuinely cares about student success.
+            </p>
+            <div class="testimonial-author">
+              <div class="author-info">
+                <h4>Felix Divine</h4>
+                <p>Former Student, Aptech Computer Education</p>
+                <p class="student-outcome">Passed Certification Exam (92%)</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="quote-icon">"</div>
+            <p class="testimonial-text">
+              Samuel's technical expertise combined with his teaching ability is
+              rare. He updated our curriculum to include modern tools like
+              Docker and CI/CD pipelines. Student feedback improved by 95% under
+              his instruction. He's an asset to any educational program.
+            </p>
+            <div class="testimonial-author">
+              <div class="author-info">
+                <h4>Department Head</h4>
+                <p>Aptech Computer Education</p>
+                <p class="reference-contact">Port Harcourt, Nigeria</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery" id="gallery">
+      <div class="container">
+        <h2 class="section-title">In Action</h2>
+        <p class="section-subtitle">
+          Behind the scenes of teaching and development
+        </p>
+
+        <div class="gallery-grid">
+          <div class="gallery-item">
+            <img
+              src="1.jpg"
+              alt="Teaching in class"
+              onerror="this.src='https://via.placeholder.com/400x300/2563eb/ffffff?text=Explaining+Technical+Concepts'"
+            />
+            <div class="gallery-overlay">
+              <p>Lecture In Progress</p>
+            </div>
+          </div>
+
+          <div class="gallery-item">
+            <img
+              src="2.jpg"
+              alt="Working on project"
+              onerror="this.src='https://via.placeholder.com/400x300/10b981/ffffff?text=Coding+Session'"
+            />
+            <div class="gallery-overlay">
+              <p>Q&A Session</p>
+            </div>
+          </div>
+
+          <div class="gallery-item">
+            <img
+              src="3.jpg"
+              alt="Mentoring students"
+              onerror="this.src='https://via.placeholder.com/400x300/f59e0b/ffffff?text=Student+Mentoring'"
+            />
+            <div class="gallery-overlay">
+              <p>Project Presentation</p>
+            </div>
+          </div>
+
+          <div class="gallery-item">
+            <img
+              src="4.jpeg"
+              alt="Team collaboration"
+              onerror="this.src='https://via.placeholder.com/400x300/8b5cf6/ffffff?text=Team+Collaboration'"
+            />
+            <div class="gallery-overlay">
+              <p>Online Training Session</p>
+            </div>
+          </div>
+
+          <div class="gallery-item">
+            <img
+              src="5.png"
+              alt="Code review session"
+              onerror="this.src='https://via.placeholder.com/400x300/ec4899/ffffff?text=Code+Review'"
+            />
+            <div class="gallery-overlay">
+              <p>Online Class</p>
+            </div>
+          </div>
+
+          <div class="gallery-item">
+            <img
+              src="6.png"
+              alt="Presentation"
+              onerror="this.src='https://via.placeholder.com/400x300/06b6d4/ffffff?text=Tech+Presentation'"
+            />
+            <div class="gallery-overlay">
+              <p>Online Q&A Session</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+      <div class="container">
+        <h2 class="section-title" style="color: white">Let's Work Together</h2>
+        <p class="section-subtitle" style="color: #cbd5e1">
+          I'm always open to discussing new projects and opportunities
+        </p>
+
+        <div class="contact-grid">
+          <div class="contact-card">
+            <div class="contact-icon">📧</div>
+            <h3>Email</h3>
+            <a href="mailto:samuelojedele2003@gmail.com"
+              >samuelojedele2003@gmail.com</a
+            >
+          </div>
+
+          <div class="contact-card">
+            <div class="contact-icon">📱</div>
+            <h3>Phone</h3>
+            <a href="tel:+2347055440792">+234 (0)7055440792</a>
+          </div>
+
+          <div class="contact-card">
+            <div class="contact-icon">💼</div>
+            <h3>LinkedIn</h3>
+            <a href="https://www.linkedin.com/in/samuelojedele/" target="_blank"
+              >linkedin.com/in/samuelojedele</a
+            >
+          </div>
+
+          <div class="contact-card">
+            <div class="contact-icon">💻</div>
+            <h3>GitHub</h3>
+            <a href="https://github.com/samuelojedele" target="_blank"
+              >github.com/samuelojedele</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <p>&copy; 2026 Samuel Toluwani Ojedele. All rights reserved.</p>
+        <p style="margin-top: 10px; font-size: 0.9rem">
+          "Code is like humor. When you have to explain it, it's bad." – Cory
+          House
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      // Smooth scroll for all anchor links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            target.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            });
+          }
+        });
+      });
+
+      // Mobile menu toggle
+      function toggleMenu() {
+        const navMenu = document.getElementById("navMenu");
+        navMenu.classList.toggle("active");
+      }
+
+      function closeMenu() {
+        const navMenu = document.getElementById("navMenu");
+        navMenu.classList.remove("active");
+      }
+
+      // Close menu when clicking outside
+      document.addEventListener("click", function (event) {
+        const navMenu = document.getElementById("navMenu");
+        const navToggle = document.querySelector(".nav-toggle");
+        const isClickInside =
+          navMenu.contains(event.target) || navToggle.contains(event.target);
+
+        if (!isClickInside && navMenu.classList.contains("active")) {
+          navMenu.classList.remove("active");
+        }
+      });
+    </script>
+  </body>
+</html>
