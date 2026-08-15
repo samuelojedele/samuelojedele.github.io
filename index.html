@@ -3,9 +3,19 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Samuel Ojedele - Backend Developer</title>
+
+    <title>
+      Samuel Ojedele | Systems, AI & Automation Engineer
+    </title>
+
+    <meta
+      name="description"
+      content="Samuel Ojedele is a software engineer and systems-minded builder focused on AI, automation, process improvement and scalable digital products."
+    />
+
     <link rel="icon" type="image/png" href="ProfilePic.png" />
     <link rel="apple-touch-icon" href="ProfilePic.png" />
+
     <style>
       * {
         margin: 0;
@@ -15,43 +25,55 @@
       }
 
       :root {
-        --primary: #2563eb;
-        --secondary: #1e40af;
+        --primary: #7c3aed;
+        --secondary: #5b21b6;
         --dark: #0f172a;
+        --dark-2: #111827;
         --light: #f8fafc;
         --text: #334155;
-        --accent: #10b981;
+        --muted: #64748b;
+        --accent: #a78bfa;
+        --success: #10b981;
+        --border: #e2e8f0;
       }
 
       body {
         font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-        line-height: 1.6;
+        line-height: 1.7;
         color: var(--text);
         background: var(--light);
       }
 
-      .container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 20px;
+      a {
+        transition: all 0.3s ease;
       }
 
-      /* Navigation Bar */
+      .container {
+        max-width: 1180px;
+        margin: 0 auto;
+        padding: 0 24px;
+      }
+
+      /* =========================
+         NAVIGATION
+      ========================= */
+
       nav {
         position: fixed;
         top: 0;
         left: 0;
         right: 0;
-        background: var(--dark);
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        background: rgba(15, 23, 42, 0.95);
+        backdrop-filter: blur(12px);
         z-index: 10000;
         padding: 15px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
       }
 
       .nav-container {
-        max-width: 1200px;
+        max-width: 1180px;
         margin: 0 auto;
-        padding: 0 20px;
+        padding: 0 24px;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -60,33 +82,29 @@
       .nav-logo {
         color: white;
         font-size: 1.5rem;
-        font-weight: bold;
+        font-weight: 800;
         text-decoration: none;
-        transition: color 0.3s ease;
-      }
-
-      .nav-logo:hover {
-        color: var(--accent);
       }
 
       .nav-logo span {
         color: var(--accent);
       }
 
+      .nav-logo:hover {
+        color: var(--accent);
+      }
+
       .nav-menu {
         display: flex;
         list-style: none;
-        gap: 30px;
-        margin: 0;
-        padding: 0;
+        gap: 22px;
       }
 
       .nav-menu li a {
-        color: white;
+        color: #e2e8f0;
         text-decoration: none;
         font-weight: 500;
-        transition: color 0.3s ease;
-        padding: 5px 10px;
+        padding: 6px 10px;
       }
 
       .nav-menu li a:hover {
@@ -100,45 +118,38 @@
         color: white;
         font-size: 2rem;
         cursor: pointer;
-        padding: 5px 10px;
-        transition: color 0.3s ease;
       }
 
-      .nav-toggle:hover {
-        color: var(--accent);
-      }
+      /* =========================
+         HERO
+      ========================= */
 
-      .nav-toggle:focus {
-        outline: none;
-      }
-
-      /* Header/Hero */
       header {
-        background: linear-gradient(
-          135deg,
-          var(--dark) 0%,
-          var(--secondary) 100%
-        );
+        background:
+          radial-gradient(
+            circle at 20% 20%,
+            rgba(124, 58, 237, 0.25),
+            transparent 30%
+          ),
+          radial-gradient(
+            circle at 80% 70%,
+            rgba(16, 185, 129, 0.12),
+            transparent 30%
+          ),
+          linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
         color: white;
-        padding: 80px 0;
+        padding: 140px 0 100px;
         text-align: center;
       }
 
-      .hero-content h1 {
-        font-size: 3rem;
-        margin-bottom: 10px;
-        animation: fadeInDown 0.8s ease;
-      }
-
       .profile-picture {
-        width: 200px;
-        height: 200px;
-        margin: 0 auto 30px;
+        width: 170px;
+        height: 170px;
+        margin: 0 auto 28px;
         border-radius: 50%;
         overflow: hidden;
-        border: 5px solid white;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-        animation: fadeIn 0.8s ease;
+        border: 4px solid rgba(255, 255, 255, 0.9);
+        box-shadow: 0 15px 50px rgba(0, 0, 0, 0.35);
       }
 
       .profile-picture img {
@@ -147,306 +158,391 @@
         object-fit: cover;
       }
 
+      .hero-content h1 {
+        font-size: 3.5rem;
+        line-height: 1.15;
+        margin-bottom: 15px;
+        animation: fadeInDown 0.8s ease;
+      }
+
       .hero-content .subtitle {
-        font-size: 1.4rem;
-        color: #cbd5e1;
-        margin-bottom: 30px;
-        animation: fadeInUp 0.8s ease;
+        font-size: 1.35rem;
+        color: #c4b5fd;
+        font-weight: 600;
+        margin-bottom: 22px;
       }
 
       .hero-content .tagline {
+        max-width: 780px;
+        margin: 0 auto 35px;
+        color: #cbd5e1;
         font-size: 1.1rem;
-        color: #94a3b8;
-        max-width: 700px;
-        margin: 0 auto 40px;
-        animation: fadeIn 1s ease;
+      }
+
+      .hero-highlight {
+        color: #a78bfa;
+        font-weight: 700;
       }
 
       .cta-buttons {
         display: flex;
-        gap: 20px;
         justify-content: center;
+        gap: 15px;
         flex-wrap: wrap;
-        animation: fadeInUp 1.2s ease;
       }
 
       .btn {
-        padding: 12px 30px;
+        padding: 12px 26px;
         border-radius: 8px;
         text-decoration: none;
-        font-weight: 600;
-        transition: all 0.3s ease;
+        font-weight: 700;
         display: inline-flex;
         align-items: center;
         gap: 8px;
       }
 
       .btn-primary {
-        background: var(--accent);
+        background: var(--primary);
         color: white;
       }
 
       .btn-primary:hover {
-        background: #059669;
+        background: #6d28d9;
         transform: translateY(-2px);
-        box-shadow: 0 10px 20px rgba(16, 185, 129, 0.3);
       }
 
       .btn-secondary {
-        background: transparent;
+        border: 1px solid rgba(255, 255, 255, 0.5);
         color: white;
-        border: 2px solid white;
+        background: rgba(255, 255, 255, 0.05);
       }
 
       .btn-secondary:hover {
         background: white;
         color: var(--dark);
-        transform: translateY(-2px);
       }
 
-      /* About Section */
-      .about {
-        padding: 80px 0;
-        background: white;
+      /* =========================
+         GENERAL SECTIONS
+      ========================= */
+
+      section {
+        padding: 90px 0;
       }
 
       .section-title {
-        font-size: 2.5rem;
         text-align: center;
-        margin-bottom: 20px;
+        font-size: 2.5rem;
         color: var(--dark);
+        margin-bottom: 12px;
       }
 
       .section-subtitle {
         text-align: center;
-        color: var(--text);
-        margin-bottom: 50px;
-        font-size: 1.1rem;
+        color: var(--muted);
+        max-width: 720px;
+        margin: 0 auto 50px;
+      }
+
+      /* =========================
+         ABOUT
+      ========================= */
+
+      .about {
+        background: white;
       }
 
       .about-content {
         display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 50px;
+        grid-template-columns: 1.4fr 1fr;
+        gap: 60px;
         align-items: center;
       }
 
       .about-text p {
         margin-bottom: 20px;
-        line-height: 1.8;
+      }
+
+      .about-text strong {
+        color: var(--dark);
+      }
+
+      .systems-box {
+        background: linear-gradient(135deg, #f5f3ff, #ecfdf5);
+        border: 1px solid #ddd6fe;
+        padding: 30px;
+        border-radius: 16px;
+      }
+
+      .systems-box h3 {
+        color: var(--secondary);
+        margin-bottom: 15px;
+      }
+
+      .systems-box ul {
+        list-style: none;
+      }
+
+      .systems-box li {
+        margin-bottom: 12px;
+        padding-left: 25px;
+        position: relative;
+      }
+
+      .systems-box li::before {
+        content: "→";
+        position: absolute;
+        left: 0;
+        color: var(--primary);
+        font-weight: bold;
       }
 
       .stats {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        gap: 30px;
-        margin-top: 40px;
+        gap: 15px;
+        margin-top: 35px;
       }
 
       .stat-card {
-        text-align: center;
-        padding: 30px;
         background: var(--light);
+        padding: 22px 12px;
         border-radius: 12px;
-        transition: transform 0.3s ease;
-      }
-
-      .stat-card:hover {
-        transform: translateY(-5px);
+        text-align: center;
+        border: 1px solid var(--border);
       }
 
       .stat-number {
-        font-size: 2.5rem;
-        font-weight: bold;
+        font-size: 2rem;
+        font-weight: 800;
         color: var(--primary);
       }
 
       .stat-label {
-        color: var(--text);
-        font-size: 0.9rem;
+        font-size: 0.85rem;
+        color: var(--muted);
       }
 
-      /* Skills Section */
-      .skills {
-        padding: 80px 0;
+      /* =========================
+         WHAT I BUILD
+      ========================= */
+
+      .approach {
         background: var(--light);
+      }
+
+      .approach-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+      }
+
+      .approach-card {
+        background: white;
+        padding: 30px 24px;
+        border-radius: 14px;
+        border: 1px solid var(--border);
+        transition: all 0.3s ease;
+      }
+
+      .approach-card:hover {
+        transform: translateY(-6px);
+        border-color: #c4b5fd;
+        box-shadow: 0 15px 30px rgba(15, 23, 42, 0.08);
+      }
+
+      .approach-icon {
+        font-size: 2rem;
+        margin-bottom: 15px;
+      }
+
+      .approach-card h3 {
+        color: var(--dark);
+        margin-bottom: 10px;
+      }
+
+      .approach-card p {
+        font-size: 0.95rem;
+        color: var(--muted);
+      }
+
+      /* =========================
+         SKILLS
+      ========================= */
+
+      .skills {
+        background: white;
       }
 
       .skills-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 30px;
-        margin-top: 50px;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 25px;
       }
 
       .skill-category {
-        background: white;
-        padding: 30px;
-        border-radius: 12px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-      }
-
-      .skill-category:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        padding: 28px;
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        background: var(--light);
       }
 
       .skill-category h3 {
-        color: var(--primary);
-        margin-bottom: 20px;
-        font-size: 1.4rem;
+        color: var(--secondary);
+        margin-bottom: 18px;
       }
 
       .skill-tags {
         display: flex;
         flex-wrap: wrap;
-        gap: 10px;
+        gap: 8px;
       }
 
       .skill-tag {
-        background: var(--light);
-        padding: 8px 16px;
+        background: white;
+        border: 1px solid var(--border);
+        padding: 7px 12px;
         border-radius: 20px;
-        font-size: 0.9rem;
-        color: var(--text);
-        border: 1px solid #e2e8f0;
+        font-size: 0.85rem;
       }
 
-      /* Experience Section */
+      /* =========================
+         EXPERIENCE
+      ========================= */
+
       .experience {
-        padding: 80px 0;
-        background: white;
+        background: var(--light);
       }
 
       .timeline {
-        position: relative;
         max-width: 900px;
-        margin: 50px auto;
-      }
-
-      .timeline::before {
-        content: "";
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 2px;
-        height: 100%;
-        background: var(--primary);
+        margin: auto;
       }
 
       .timeline-item {
-        margin-bottom: 50px;
         position: relative;
+        margin-bottom: 28px;
       }
 
       .timeline-content {
-        background: var(--light);
+        background: white;
         padding: 30px;
-        border-radius: 12px;
-        width: 45%;
-        position: relative;
-      }
-
-      .timeline-item:nth-child(odd) .timeline-content {
-        margin-left: auto;
+        border-radius: 14px;
+        border: 1px solid var(--border);
+        box-shadow: 0 5px 20px rgba(15, 23, 42, 0.04);
       }
 
       .timeline-content h3 {
         color: var(--primary);
-        font-size: 1.4rem;
-        margin-bottom: 10px;
+        margin-bottom: 4px;
       }
 
-      .timeline-content .company {
-        color: var(--text);
-        font-weight: 600;
-        margin-bottom: 5px;
+      .company {
+        font-weight: 700;
+        color: var(--dark);
       }
 
-      .timeline-content .period {
-        color: #64748b;
+      .period {
+        color: var(--muted);
         font-size: 0.9rem;
-        margin-bottom: 20px;
+        margin-bottom: 18px;
       }
 
       .timeline-content ul {
         list-style: none;
-        padding-left: 0;
       }
 
       .timeline-content li {
-        padding-left: 25px;
         position: relative;
-        margin-bottom: 10px;
+        padding-left: 22px;
+        margin-bottom: 9px;
       }
 
       .timeline-content li::before {
         content: "▹";
         position: absolute;
         left: 0;
-        color: var(--accent);
+        color: var(--primary);
         font-weight: bold;
       }
 
-      /* Projects Section */
+      /* =========================
+         PROJECTS
+      ========================= */
+
       .projects {
-        padding: 80px 0;
-        background: var(--light);
+        background: white;
       }
 
       .projects-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-        gap: 30px;
-        margin-top: 50px;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 28px;
       }
 
       .project-card {
-        background: white;
-        border-radius: 12px;
+        border: 1px solid var(--border);
+        border-radius: 16px;
         overflow: hidden;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        background: white;
+        transition: all 0.3s ease;
       }
 
       .project-card:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        transform: translateY(-8px);
+        box-shadow: 0 20px 40px rgba(15, 23, 42, 0.12);
       }
 
       .project-header {
-        background: linear-gradient(135deg, var(--primary), var(--secondary));
+        padding: 28px;
+        background: linear-gradient(
+          135deg,
+          var(--primary),
+          var(--secondary)
+        );
         color: white;
-        padding: 30px;
       }
 
       .project-header h3 {
-        font-size: 1.5rem;
-        margin-bottom: 10px;
+        font-size: 1.45rem;
+        margin-bottom: 8px;
+      }
+
+      .project-label {
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: #ddd6fe;
       }
 
       .project-body {
-        padding: 25px;
+        padding: 28px;
       }
 
       .project-body p {
-        color: var(--text);
+        margin-bottom: 18px;
+      }
+
+      .project-value {
+        background: #f5f3ff;
+        padding: 16px;
+        border-left: 4px solid var(--primary);
+        border-radius: 6px;
         margin-bottom: 20px;
       }
 
       .tech-stack {
         display: flex;
         flex-wrap: wrap;
-        gap: 8px;
+        gap: 7px;
         margin-bottom: 20px;
       }
 
       .tech-badge {
-        background: var(--primary);
-        color: white;
-        padding: 4px 12px;
-        border-radius: 12px;
+        padding: 5px 10px;
+        border-radius: 15px;
+        background: var(--light);
+        border: 1px solid var(--border);
         font-size: 0.8rem;
       }
 
@@ -457,374 +553,195 @@
 
       .project-link {
         color: var(--primary);
+        font-weight: 700;
         text-decoration: none;
-        font-weight: 600;
-        transition: color 0.3s ease;
       }
 
       .project-link:hover {
         color: var(--secondary);
       }
 
-      /* Contact Section */
-      .contact {
-        padding: 80px 0;
+      /* =========================
+         EXPERIMENTS
+      ========================= */
+
+      .experiments {
         background: var(--dark);
+        color: white;
+      }
+
+      .experiments .section-title {
+        color: white;
+      }
+
+      .experiments .section-subtitle {
+        color: #cbd5e1;
+      }
+
+      .experiment-box {
+        max-width: 900px;
+        margin: auto;
+        padding: 35px;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        background: rgba(255, 255, 255, 0.04);
+        border-radius: 16px;
+      }
+
+      .experiment-box h3 {
+        color: var(--accent);
+        margin-bottom: 12px;
+      }
+
+      .experiment-box p {
+        color: #cbd5e1;
+        margin-bottom: 15px;
+      }
+
+      .experiment-list {
+        list-style: none;
+      }
+
+      .experiment-list li {
+        padding: 10px 0 10px 25px;
+        position: relative;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+      }
+
+      .experiment-list li::before {
+        content: "✦";
+        position: absolute;
+        left: 0;
+        color: var(--accent);
+      }
+
+      /* =========================
+         TEACHING
+      ========================= */
+
+      .teaching {
+        background: white;
+      }
+
+      .teaching-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+      }
+
+      .teaching-card {
+        padding: 30px;
+        border-radius: 14px;
+        background: var(--light);
+        border: 1px solid var(--border);
+      }
+
+      .teaching-card h3 {
+        color: var(--primary);
+        margin-bottom: 12px;
+      }
+
+      .teaching-card ul {
+        list-style: none;
+      }
+
+      .teaching-card li {
+        margin-bottom: 9px;
+        padding-left: 22px;
+        position: relative;
+      }
+
+      .teaching-card li::before {
+        content: "✓";
+        position: absolute;
+        left: 0;
+        color: var(--success);
+        font-weight: bold;
+      }
+
+      /* =========================
+         CONTACT
+      ========================= */
+
+      .contact {
+        background: #020617;
         color: white;
         text-align: center;
       }
 
+      .contact .section-title {
+        color: white;
+      }
+
+      .contact .section-subtitle {
+        color: #cbd5e1;
+      }
+
       .contact-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 30px;
-        margin-top: 50px;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
       }
 
       .contact-card {
-        background: rgba(255, 255, 255, 0.1);
-        padding: 30px;
+        padding: 25px 15px;
         border-radius: 12px;
-        transition: background 0.3s ease;
-      }
-
-      .contact-card:hover {
-        background: rgba(255, 255, 255, 0.15);
+        background: rgba(255, 255, 255, 0.06);
       }
 
       .contact-icon {
-        font-size: 2rem;
-        margin-bottom: 15px;
+        font-size: 1.8rem;
+        margin-bottom: 10px;
       }
 
       .contact-card h3 {
-        margin-bottom: 10px;
         color: var(--accent);
+        margin-bottom: 7px;
       }
 
       .contact-card a {
         color: white;
         text-decoration: none;
+        font-size: 0.9rem;
+        word-break: break-word;
       }
 
       .contact-card a:hover {
         color: var(--accent);
       }
 
-      /* Teaching Section */
-      .teaching {
-        padding: 80px 0;
-        background: white;
-      }
+      /* =========================
+         FOOTER
+      ========================= */
 
-      .teaching-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
-        gap: 30px;
-        margin-top: 50px;
-      }
-
-      .curriculum-card {
-        background: var(--light);
-        padding: 40px;
-        border-radius: 12px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-      }
-
-      .curriculum-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-      }
-
-      .curriculum-icon {
-        font-size: 3rem;
-        margin-bottom: 20px;
-      }
-
-      .curriculum-card h3 {
-        color: var(--primary);
-        font-size: 1.5rem;
-        margin-bottom: 15px;
-      }
-
-      .curriculum-card p {
-        margin-bottom: 15px;
-        line-height: 1.8;
-      }
-
-      .curriculum-card ul {
-        list-style: none;
-        padding-left: 0;
-      }
-
-      .curriculum-card li {
-        padding-left: 25px;
-        position: relative;
-        margin-bottom: 12px;
-        line-height: 1.6;
-      }
-
-      .curriculum-card li::before {
-        content: "✓";
-        position: absolute;
-        left: 0;
-        color: var(--accent);
-        font-weight: bold;
-      }
-
-      .lesson-plan {
-        margin-top: 20px;
-        padding: 20px;
-        background: white;
-        border-radius: 8px;
-        border-left: 4px solid var(--primary);
-      }
-
-      .lesson-plan p {
-        margin-bottom: 10px;
-        font-weight: 600;
-        color: var(--secondary);
-      }
-
-      .lesson-plan ul {
-        margin-bottom: 15px;
-      }
-
-      /* Testimonials Section */
-      .testimonials {
-        padding: 80px 0;
-        background: var(--dark);
-      }
-
-      .testimonials-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-        gap: 30px;
-        margin-top: 50px;
-      }
-
-      .testimonial-card {
-        background: rgba(255, 255, 255, 0.05);
-        padding: 40px;
-        border-radius: 12px;
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        transition: all 0.3s ease;
-      }
-
-      .testimonial-card:hover {
-        background: rgba(255, 255, 255, 0.08);
-        transform: translateY(-5px);
-        border-color: var(--accent);
-      }
-
-      .quote-icon {
-        font-size: 4rem;
-        color: var(--accent);
-        line-height: 0.5;
-        margin-bottom: 20px;
-      }
-
-      .testimonial-text {
-        color: #e2e8f0;
-        font-size: 1.05rem;
-        line-height: 1.8;
-        margin-bottom: 25px;
-        font-style: italic;
-      }
-
-      .testimonial-author {
-        display: flex;
-        align-items: center;
-        gap: 15px;
-        padding-top: 20px;
-        border-top: 1px solid rgba(255, 255, 255, 0.1);
-      }
-
-      .author-info h4 {
-        color: white;
-        margin-bottom: 5px;
-        font-size: 1.1rem;
-      }
-
-      .author-info p {
-        color: #94a3b8;
-        font-size: 0.9rem;
-        margin-bottom: 3px;
-      }
-
-      .student-outcome {
-        color: var(--accent) !important;
-        font-weight: 600;
-      }
-
-      .reference-contact {
-        color: #cbd5e1 !important;
-        font-style: italic;
-      }
-
-      /* Gallery Section */
-      .gallery {
-        padding: 80px 0;
-        background: white;
-      }
-
-      .gallery-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-        gap: 25px;
-        margin-top: 50px;
-      }
-
-      .gallery-item {
-        position: relative;
-        border-radius: 12px;
-        overflow: hidden;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        height: 300px;
-      }
-
-      .gallery-item:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-      }
-
-      .gallery-item img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        transition: transform 0.3s ease;
-      }
-
-      .gallery-item:hover img {
-        transform: scale(1.1);
-      }
-
-      .gallery-overlay {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
-        padding: 20px;
-        transform: translateY(100%);
-        transition: transform 0.3s ease;
-      }
-
-      .gallery-item:hover .gallery-overlay {
-        transform: translateY(0);
-      }
-
-      .gallery-overlay p {
-        color: white;
-        font-size: 1.1rem;
-        font-weight: 600;
-        margin: 0;
-      }
-
-      /* Footer */
       footer {
         background: #020617;
-        color: #94a3b8;
+        color: #64748b;
         text-align: center;
-        padding: 30px 0;
+        padding: 25px;
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
       }
 
-      /* Animations */
+      /* =========================
+         ANIMATION
+      ========================= */
+
       @keyframes fadeInDown {
         from {
           opacity: 0;
           transform: translateY(-30px);
         }
+
         to {
           opacity: 1;
           transform: translateY(0);
         }
       }
 
-      @keyframes fadeInUp {
-        from {
-          opacity: 0;
-          transform: translateY(30px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
+      /* =========================
+         RESPONSIVE
+      ========================= */
 
-      @keyframes fadeIn {
-        from {
-          opacity: 0;
-        }
-        to {
-          opacity: 1;
-        }
-      }
-
-      /* Responsive */
-      @media (max-width: 768px) {
-        .hero-content h1 {
-          font-size: 2rem;
-        }
-
-        .profile-picture {
-          width: 150px;
-          height: 150px;
-        }
-
-        .about-content {
-          grid-template-columns: 1fr;
-        }
-
-        .stats {
-          grid-template-columns: 1fr;
-        }
-
-        .timeline::before {
-          left: 0;
-        }
-
-        .timeline-content {
-          width: 100%;
-          margin-left: 30px !important;
-        }
-
-        .projects-grid {
-          grid-template-columns: 1fr;
-        }
-
-        .teaching-grid {
-          grid-template-columns: 1fr;
-        }
-
-        .testimonials-grid {
-          grid-template-columns: 1fr;
-        }
-
-        .gallery-grid {
-          grid-template-columns: 1fr;
-        }
-
-        .cta-buttons {
-          flex-direction: column;
-        }
-
-        .btn {
-          width: 100%;
-          justify-content: center;
-        }
-      }
-      @media (max-width: 968px) {
-        body {
-          padding-top: 60px;
-        }
-
-        nav {
-          padding: 10px 0;
-        }
-
+      @media (max-width: 900px) {
         .nav-toggle {
           display: block;
         }
@@ -840,64 +757,57 @@
           max-height: 0;
           overflow: hidden;
           transition: max-height 0.3s ease;
-          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
         .nav-menu.active {
           max-height: 500px;
         }
 
-        .nav-menu li {
-          border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .nav-menu li:last-child {
-          border-bottom: none;
-        }
-
         .nav-menu li a {
           display: block;
-          padding: 15px 20px;
+          padding: 15px 24px;
         }
 
-        .hero-content h1 {
-          font-size: 2rem;
-        }
-
-        .profile-picture {
-          width: 150px;
-          height: 150px;
-        }
-
-        .about-content {
+        .about-content,
+        .projects-grid,
+        .teaching-grid {
           grid-template-columns: 1fr;
+        }
+
+        .approach-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .skills-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .contact-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media (max-width: 600px) {
+        .hero-content h1 {
+          font-size: 2.3rem;
+        }
+
+        .hero-content .subtitle {
+          font-size: 1.1rem;
         }
 
         .stats {
           grid-template-columns: 1fr;
         }
 
-        .cta-buttons {
-          flex-direction: column;
+        .approach-grid,
+        .skills-grid,
+        .contact-grid {
+          grid-template-columns: 1fr;
         }
 
-        .btn {
-          width: 100%;
-          justify-content: center;
-        }
-      }
-
-      @media (max-width: 480px) {
-        .nav-logo {
-          font-size: 1.3rem;
-        }
-
-        .hero-content h1 {
-          font-size: 1.5rem;
-        }
-
-        .hero-content .subtitle {
-          font-size: 1.1rem;
+        section {
+          padding: 65px 0;
         }
 
         .section-title {
@@ -906,707 +816,1120 @@
       }
     </style>
   </head>
+
   <body>
-    <!-- Navigation Bar -->
+    <!-- =========================
+         NAVIGATION
+    ========================= -->
+
     <nav>
       <div class="nav-container">
-        <a href="#" class="nav-logo">STO<span>.</span></a>
-        <button class="nav-toggle" onclick="toggleMenu()">☰</button>
+        <a href="#" class="nav-logo">
+          STO<span>.</span>
+        </a>
+
+        <button class="nav-toggle" onclick="toggleMenu()">
+          ☰
+        </button>
+
         <ul class="nav-menu" id="navMenu">
           <li><a href="#about" onclick="closeMenu()">About</a></li>
-          <li><a href="#skills" onclick="closeMenu()">Skills</a></li>
-          <li><a href="#experience" onclick="closeMenu()">Experience</a></li>
-          <li><a href="#projects" onclick="closeMenu()">Projects</a></li>
-          <li><a href="#contact" onclick="closeMenu()">Contact</a></li>
+          <li>
+            <a href="#approach" onclick="closeMenu()">How I Think</a>
+          </li>
+          <li>
+            <a href="#skills" onclick="closeMenu()">Skills</a>
+          </li>
+          <li>
+            <a href="#experience" onclick="closeMenu()">Experience</a>
+          </li>
+          <li>
+            <a href="#projects" onclick="closeMenu()">Projects</a>
+          </li>
+          <li>
+            <a href="#contact" onclick="closeMenu()">Contact</a>
+          </li>
         </ul>
       </div>
     </nav>
-    <!-- Header/Hero -->
+
+    <!-- =========================
+         HERO
+    ========================= -->
+
     <header>
       <div class="container">
         <div class="hero-content">
+
           <div class="profile-picture">
             <img
               src="ProfilePic.png"
               alt="Samuel Ojedele"
-              onerror="this.src='https://via.placeholder.com/200x200/2563eb/ffffff?text=SO'"
+              onerror="
+                this.src =
+                  'https://via.placeholder.com/200x200/7c3aed/ffffff?text=SO'
+              "
             />
           </div>
+
           <h1>Samuel Toluwani Ojedele</h1>
+
           <p class="subtitle">
-            Backend Developer & Software Engineering Instructor
+            Software Engineer • Systems Thinker • AI & Automation Builder
           </p>
+
           <p class="tagline">
-            Building scalable server-side applications with 3+ years of
-            experience. Passionate about creating production-ready systems that
-            are robust, secure, and easy to scale.
+            I enjoy looking at the way work gets done and asking:
+            <span class="hero-highlight">
+              "Why are we doing this manually?"
+            </span>
+            Then I build simpler systems, workflows and software to make the
+            work better.
           </p>
+
           <div class="cta-buttons">
-            <a href="#contact" class="btn btn-primary">Get In Touch</a>
+            <a href="#projects" class="btn btn-primary">
+              See What I've Built →
+            </a>
+
+            <a href="https://samogram.vercel.app/" target="_blank"
+              class="btn btn-secondary">
+              View My Current Project
+            </a>
           </div>
+
         </div>
       </div>
     </header>
 
-    <!-- About Section -->
+    <!-- =========================
+         ABOUT
+    ========================= -->
+
     <section class="about" id="about">
       <div class="container">
+
         <h2 class="section-title">About Me</h2>
+
         <p class="section-subtitle">
-          Turning ideas into scalable backend solutions
+          I build technology to make complicated work simpler.
         </p>
 
         <div class="about-content">
+
           <div class="about-text">
+
             <p>
-              I'm a Backend Developer with a proven track record of designing
-              and implementing scalable server-side applications. My expertise
-              spans across modern backend technologies including Node.js,
-              Express.js, NestJS, and database management with PostgreSQL and
-              MongoDB.
+              I'm a <strong>systems-minded software engineer</strong> with
+              3 years of experience building backend systems, APIs,
+              database-driven applications and digital products.
             </p>
 
             <p>
-              Currently, I combine my development experience with teaching,
-              having trained over 50 students in full-stack development at
-              Aptech Computer Education. This dual role allows me to stay at the
-              cutting edge of technology while helping shape the next generation
-              of developers.
+              What interests me most isn't simply writing code. It's
+              understanding <strong>how a process actually works</strong>,
+              finding unnecessary complexity and figuring out whether
+              software, automation or AI can remove it.
             </p>
 
             <p>
-              My approach focuses on building systems that are not just
-              functional, but optimized for performance, security, and
-              scalability. I believe in writing clean, maintainable code and
-              following industry best practices.
+              My experience spans fintech, software engineering, AI/ML,
+              technical education and startup environments. I've built
+              production systems, integrated third-party services, optimized
+              databases, solved technical problems and trained more than
+              30 software engineering students.
             </p>
+
+            <p>
+              I'm particularly interested in the intersection of
+              <strong>AI + automation + better ways of working</strong>.
+              I like experimenting, testing ideas quickly and turning useful
+              experiments into things people can actually use.
+            </p>
+
           </div>
 
-          <div class="stats">
-            <div class="stat-card">
-              <div class="stat-number">3+</div>
-              <div class="stat-label">Years Experience</div>
+          <div>
+
+            <div class="systems-box">
+
+              <h3>My default way of thinking</h3>
+
+              <ul>
+                <li>Understand the workflow.</li>
+                <li>Find the repetitive parts.</li>
+                <li>Question unnecessary complexity.</li>
+                <li>Decide whether process or technology is the answer.</li>
+                <li>Build the smallest useful solution.</li>
+                <li>Test it, learn and improve it.</li>
+              </ul>
+
             </div>
-            <div class="stat-card">
-              <div class="stat-number">50+</div>
-              <div class="stat-label">Students Trained</div>
+
+            <div class="stats">
+
+              <div class="stat-card">
+                <div class="stat-number">3+</div>
+                <div class="stat-label">Years Experience</div>
+              </div>
+
+              <div class="stat-card">
+                <div class="stat-number">30+</div>
+                <div class="stat-label">People Trained</div>
+              </div>
+
+              <div class="stat-card">
+                <div class="stat-number">20+</div>
+                <div class="stat-label">Apps Built While Teaching</div>
+              </div>
+
             </div>
-            <div class="stat-card">
-              <div class="stat-number">5+</div>
-              <div class="stat-label">Projects Delivered</div>
-            </div>
+
           </div>
+
         </div>
       </div>
     </section>
 
-    <!-- Skills Section -->
-    <section class="skills" id="skills">
+    <!-- =========================
+         HOW I THINK
+    ========================= -->
+
+    <section class="approach" id="approach">
+
       <div class="container">
-        <h2 class="section-title">Technical Skills</h2>
-        <p class="section-subtitle">My technology stack and expertise</p>
+
+        <h2 class="section-title">
+          How I Approach Problems
+        </h2>
+
+        <p class="section-subtitle">
+          I don't start with "What technology can we use?"
+          I start with "What problem are we actually trying to solve?"
+        </p>
+
+        <div class="approach-grid">
+
+          <div class="approach-card">
+            <div class="approach-icon">🔎</div>
+            <h3>Understand</h3>
+            <p>
+              I investigate how a process works, ask questions and connect
+              the dots before proposing a solution.
+            </p>
+          </div>
+
+          <div class="approach-card">
+            <div class="approach-icon">🧩</div>
+            <h3>Simplify</h3>
+            <p>
+              I look for unnecessary steps, repeated work, bottlenecks and
+              opportunities to make workflows easier.
+            </p>
+          </div>
+
+          <div class="approach-card">
+            <div class="approach-icon">⚙️</div>
+            <h3>Automate</h3>
+            <p>
+              When automation makes sense, I use APIs, software and AI to
+              remove repetitive work without adding unnecessary complexity.
+            </p>
+          </div>
+
+          <div class="approach-card">
+            <div class="approach-icon">🧪</div>
+            <h3>Experiment</h3>
+            <p>
+              I build, test, learn from failures and iterate until an idea
+              becomes genuinely useful.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================
+         SKILLS
+    ========================= -->
+
+    <section class="skills" id="skills">
+
+      <div class="container">
+
+        <h2 class="section-title">
+          Skills & Toolkit
+        </h2>
+
+        <p class="section-subtitle">
+          The tools I use to understand, build, automate and improve systems.
+        </p>
 
         <div class="skills-grid">
+
           <div class="skill-category">
-            <h3>Backend Development</h3>
+
+            <h3>AI & Problem Solving</h3>
+
             <div class="skill-tags">
+              <span class="skill-tag">Artificial Intelligence</span>
+              <span class="skill-tag">AI/ML Experimentation</span>
+              <span class="skill-tag">ANN</span>
+              <span class="skill-tag">AIS</span>
+              <span class="skill-tag">Data Processing</span>
+              <span class="skill-tag">Problem Solving</span>
+              <span class="skill-tag">AI-Assisted Development</span>
+            </div>
+
+          </div>
+
+          <div class="skill-category">
+
+            <h3>Automation & Systems</h3>
+
+            <div class="skill-tags">
+              <span class="skill-tag">Workflow Design</span>
+              <span class="skill-tag">Process Improvement</span>
+              <span class="skill-tag">REST APIs</span>
+              <span class="skill-tag">API Integrations</span>
+              <span class="skill-tag">Backend Automation</span>
+              <span class="skill-tag">Authentication</span>
+              <span class="skill-tag">Third-Party Services</span>
+            </div>
+
+          </div>
+
+          <div class="skill-category">
+
+            <h3>Backend Development</h3>
+
+            <div class="skill-tags">
+              <span class="skill-tag">Python</span>
+              <span class="skill-tag">Django</span>
+              <span class="skill-tag">Django REST Framework</span>
               <span class="skill-tag">Node.js</span>
               <span class="skill-tag">Express.js</span>
-              <span class="skill-tag">NestJS</span>
-              <span class="skill-tag">Django</span>
-              <span class="skill-tag">RESTful APIs</span>
-              <span class="skill-tag">WebSockets</span>
-              <span class="skill-tag">Socket.io</span>
+              <span class="skill-tag">REST APIs</span>
             </div>
+
           </div>
 
           <div class="skill-category">
-            <h3>Programming Languages</h3>
+
+            <h3>Data & Databases</h3>
+
+            <div class="skill-tags">
+              <span class="skill-tag">PostgreSQL</span>
+              <span class="skill-tag">MongoDB</span>
+              <span class="skill-tag">MySQL</span>
+              <span class="skill-tag">SQL</span>
+              <span class="skill-tag">Query Optimization</span>
+              <span class="skill-tag">Data Management</span>
+            </div>
+
+          </div>
+
+          <div class="skill-category">
+
+            <h3>Product Building</h3>
+
             <div class="skill-tags">
               <span class="skill-tag">JavaScript</span>
-              <span class="skill-tag">TypeScript</span>
-              <span class="skill-tag">Python</span>
-              <span class="skill-tag">Java</span>
-              <span class="skill-tag">C</span>
-              <span class="skill-tag">SQL</span>
-            </div>
-          </div>
-
-          <div class="skill-category">
-            <h3>Databases</h3>
-            <div class="skill-tags">
-              <span class="skill-tag">MongoDB</span>
-              <span class="skill-tag">PostgreSQL</span>
-              <span class="skill-tag">MySQL</span>
-              <span class="skill-tag">Redis</span>
-            </div>
-          </div>
-
-          <div class="skill-category">
-            <h3>DevOps & Tools</h3>
-            <div class="skill-tags">
-              <span class="skill-tag">Docker</span>
+              <span class="skill-tag">React.js</span>
+              <span class="skill-tag">Next.js</span>
+              <span class="skill-tag">Full-Stack Development</span>
               <span class="skill-tag">Git</span>
-              <span class="skill-tag">GitHub Actions</span>
-              <span class="skill-tag">Jenkins</span>
-              <span class="skill-tag">Heroku</span>
-              <span class="skill-tag">AWS/GCP</span>
+              <span class="skill-tag">Docker</span>
             </div>
+
           </div>
 
           <div class="skill-category">
-            <h3>Message Queues</h3>
+
+            <h3>People & Collaboration</h3>
+
             <div class="skill-tags">
-              <span class="skill-tag">RabbitMQ</span>
-              <span class="skill-tag">BullMQ</span>
+              <span class="skill-tag">Technical Training</span>
+              <span class="skill-tag">Mentoring</span>
+              <span class="skill-tag">Documentation</span>
+              <span class="skill-tag">Code Reviews</span>
+              <span class="skill-tag">Agile</span>
+              <span class="skill-tag">Stakeholder Collaboration</span>
             </div>
+
           </div>
 
-          <div class="skill-category">
-            <h3>Other Tools</h3>
-            <div class="skill-tags">
-              <span class="skill-tag">JWT Auth</span>
-              <span class="skill-tag">Swagger</span>
-              <span class="skill-tag">CI/CD</span>
-            </div>
-          </div>
         </div>
+
       </div>
+
     </section>
 
-    <!-- Experience Section -->
+    <!-- =========================
+         EXPERIENCE
+    ========================= -->
+
     <section class="experience" id="experience">
+
       <div class="container">
-        <h2 class="section-title">Work Experience</h2>
-        <p class="section-subtitle">My professional journey</p>
+
+        <h2 class="section-title">
+          Experience
+        </h2>
+
+        <p class="section-subtitle">
+          Building systems, solving problems and helping people work better.
+        </p>
 
         <div class="timeline">
-          <div class="timeline-item">
-            <div class="timeline-content">
-              <h3>Backend Developer (Remote)</h3>
-              <div class="company">MyFund</div>
-              <div class="period">2022 - 2025</div>
-              <ul>
-                <li>
-                  Developed backend systems focusing on scalability and
-                  performance, improving API response time by 30%
-                </li>
-                <li>Designed RESTful APIs that reduced latency by 25%</li>
-                <li>
-                  Optimized databases (PostgreSQL, MongoDB) improving data
-                  retrieval speeds by 40%
-                </li>
-                <li>
-                  Collaborated with frontend teams to launch 3 major digital
-                  products
-                </li>
-                <li>
-                  Reduced server response time by 80% through performance tuning
-                </li>
-              </ul>
-            </div>
-          </div>
+
+          <!-- MYFUND -->
 
           <div class="timeline-item">
+
             <div class="timeline-content">
+
+              <h3>Software Engineer / Backend Developer</h3>
+
+              <div class="company">
+                MyFund
+              </div>
+
+              <div class="period">
+                Remote · Part-time · Mar 2024 – Mar 2026
+              </div>
+
+              <ul>
+
+                <li>
+                  Designed and developed scalable backend workflows using
+                  Python and Django, translating business requirements into
+                  reliable technical systems.
+                </li>
+
+                <li>
+                  Integrated third-party payment and financial-service APIs
+                  to support and automate transaction workflows.
+                </li>
+
+                <li>
+                  Optimized PostgreSQL and MongoDB databases through indexing
+                  and query optimization, improving data retrieval performance
+                  by 40%.
+                </li>
+
+                <li>
+                  Built and deployed production applications serving
+                  1,000+ daily active users.
+                </li>
+
+                <li>
+                  Investigated bugs, performance problems and system
+                  bottlenecks, then iterated on solutions to improve
+                  reliability.
+                </li>
+
+                <li>
+                  Collaborated with product stakeholders to understand
+                  requirements and translate them into practical systems.
+                </li>
+
+              </ul>
+
+            </div>
+
+          </div>
+
+          <!-- APTECH -->
+
+          <div class="timeline-item">
+
+            <div class="timeline-content">
+
               <h3>Software Engineering Instructor</h3>
-              <div class="company">Aptech Computer Education</div>
-              <div class="period">2024 - 2025</div>
+
+              <div class="company">
+                Aptech Computer Education
+              </div>
+
+              <div class="period">
+                Full-time · Sep 2024 – Sep 2025
+              </div>
+
               <ul>
+
                 <li>
-                  Delivered full-stack training to 50+ students with 85%
-                  certification pass rate
+                  Trained and mentored 30+ students across Python, Django,
+                  React, Node.js, SQL and software engineering.
                 </li>
-                <li>Guided students through 20+ full-stack web applications</li>
+
                 <li>
-                  Led weekly coding workshops achieving 95% student satisfaction
+                  Developed and deployed 20+ full-stack applications,
+                  taking learners from problem definition through
+                  implementation and deployment.
                 </li>
+
                 <li>
-                  Updated curriculum for 6 major topics aligned with industry
-                  trends
+                  Simplified complex technical concepts into repeatable
+                  workflows that learners could understand and apply.
                 </li>
+
                 <li>
-                  Reduced query resolution time by 50% through structured
-                  mentoring
+                  Conducted code reviews and technical assessments to identify
+                  recurring problems and improve software quality.
                 </li>
+
+                <li>
+                  Led workshops covering Git, Docker, Agile, automated
+                  testing and software-development lifecycle practices.
+                </li>
+
               </ul>
+
             </div>
+
           </div>
 
+          <!-- TIIDELAB -->
+
           <div class="timeline-item">
+
             <div class="timeline-content">
-              <h3>Software Developer (Intern)</h3>
-              <div class="company">TIIDELab Initiative</div>
-              <div class="period">2022 - 2023</div>
+
+              <h3>Software Engineering Intern</h3>
+
+              <div class="company">
+                TIIDELab Initiative
+              </div>
+
+              <div class="period">
+                Jun 2022 – Nov 2022
+              </div>
+
               <ul>
+
                 <li>
-                  Built server-side applications using Node.js, improving
-                  performance by 20%
+                  Developed Node.js and Express.js REST APIs for a
+                  data-driven whistle-blowing application.
                 </li>
+
                 <li>
-                  Developed RESTful APIs reducing service communication time by
-                  30%
+                  Worked within a six-person Agile engineering team across
+                  planning, development, testing and code review.
                 </li>
+
                 <li>
-                  Contributed to data-driven apps supporting 1000+ active users
+                  Resolved 20+ critical bugs and performance issues,
+                  contributing to a 15% reduction in customer-reported
+                  problems.
                 </li>
+
                 <li>
-                  Participated in code reviews, increasing code quality by 25%
+                  Contributed to technical documentation and deployment
+                  activities.
                 </li>
-                <li>Reduced critical bugs by 40% within first 3 months</li>
+
               </ul>
+
             </div>
+
           </div>
+
         </div>
+
       </div>
+
     </section>
 
-    <!-- Projects Section -->
+    <!-- =========================
+         PROJECTS
+    ========================= -->
+
     <section class="projects" id="projects">
+
       <div class="container">
-        <h2 class="section-title">Featured Projects</h2>
-        <p class="section-subtitle">Some of my notable work</p>
+
+        <h2 class="section-title">
+          What I've Built
+        </h2>
+
+        <p class="section-subtitle">
+          I learn by building. These projects show how I turn problems,
+          ideas and experiments into working products.
+        </p>
 
         <div class="projects-grid">
-          <div class="project-card">
-            <div class="project-header">
-              <h3>Real-Time Chat Application Backend</h3>
-            </div>
-            <div class="project-body">
-              <p>
-                A real-time chat server built with NestJS and Socket.io,
-                designed with a modular architecture for scalability and
-                maintainability. Features WebSocket connections for instant
-                messaging.
-              </p>
-              <div class="tech-stack">
-                <span class="tech-badge">NestJS</span>
-                <span class="tech-badge">Socket.io</span>
-                <span class="tech-badge">TypeScript</span>
-                <span class="tech-badge">WebSockets</span>
-              </div>
-              <div class="project-links">
-                <a
-                  href="https://github.com/samuelojedele/Chat-App-Backend"
-                  target="_blank"
-                  class="project-link"
-                  >View Code →</a
-                >
-              </div>
-            </div>
-          </div>
+
+          <!-- SAMOGRAM -->
 
           <div class="project-card">
+
             <div class="project-header">
-              <h3>Book Management System</h3>
-            </div>
-            <div class="project-body">
-              <p>
-                Backend system to manage books, authors, and user
-                borrowing/lending operations. Implemented comprehensive CRUD
-                APIs for books and authors with robust data validation.
-              </p>
-              <div class="tech-stack">
-                <span class="tech-badge">NestJS</span>
-                <span class="tech-badge">TypeScript</span>
-                <span class="tech-badge">RESTful API</span>
-                <span class="tech-badge">Database</span>
+
+              <div class="project-label">
+                Current Project
               </div>
+
+              <h3>
+                Samogram
+              </h3>
+
+            </div>
+
+            <div class="project-body">
+
+              <p>
+                A social communication product I'm currently building and
+                experimenting with as part of my broader interest in
+                communication, collaboration and digital systems.
+              </p>
+
+              <div class="project-value">
+
+                <strong>Why I built it:</strong>
+
+                <br />
+
+                I wanted to explore how software can make communication and
+                collaboration easier while learning from real product
+                development, user experience and technical iteration.
+
+              </div>
+
+              <div class="tech-stack">
+
+                <span class="tech-badge">
+                  Web Application
+                </span>
+
+                <span class="tech-badge">
+                  Full-Stack Development
+                </span>
+
+                <span class="tech-badge">
+                  Product Experimentation
+                </span>
+
+              </div>
+
               <div class="project-links">
+
                 <a
-                  href="https://github.com/samuelojedele/Book-Mangement-System"
+                  href="https://samogram.vercel.app/"
                   target="_blank"
                   class="project-link"
-                  >View Code →</a
                 >
+                  Visit Live Project →
+                </a>
+
               </div>
+
             </div>
+
           </div>
+
+          <!-- FRAUD DETECTION -->
+
+          <div class="project-card">
+
+            <div class="project-header">
+
+              <div class="project-label">
+                AI / Machine Learning
+              </div>
+
+              <h3>
+                Credit/Debit Card Fraud Detection
+              </h3>
+
+            </div>
+
+            <div class="project-body">
+
+              <p>
+                An AI-based fraud detection system developed using an
+                Artificial Neural Network and Artificial Immune System.
+              </p>
+
+              <div class="project-value">
+
+                <strong>What I learned:</strong>
+
+                <br />
+
+                How to take a real financial problem, work with data,
+                experiment with AI techniques and evaluate a technical
+                solution.
+
+              </div>
+
+              <div class="tech-stack">
+
+                <span class="tech-badge">
+                  Python
+                </span>
+
+                <span class="tech-badge">
+                  Artificial Intelligence
+                </span>
+
+                <span class="tech-badge">
+                  ANN
+                </span>
+
+                <span class="tech-badge">
+                  AIS
+                </span>
+
+              </div>
+
+            </div>
+
+          </div>
+
+          <!-- CHAT -->
+
+          <div class="project-card">
+
+            <div class="project-header">
+
+              <div class="project-label">
+                Communication
+              </div>
+
+              <h3>
+                Real-Time Chat Application
+              </h3>
+
+            </div>
+
+            <div class="project-body">
+
+              <p>
+                A real-time messaging system designed around modern backend
+                architecture and instant communication workflows.
+              </p>
+
+              <div class="project-value">
+
+                <strong>Why it matters:</strong>
+
+                <br />
+
+                Explored how communication systems can be designed around
+                real-time interactions, scalable backend services and
+                reliable data flow.
+
+              </div>
+
+              <div class="tech-stack">
+
+                <span class="tech-badge">
+                  Node.js
+                </span>
+
+                <span class="tech-badge">
+                  APIs
+                </span>
+
+                <span class="tech-badge">
+                  Real-Time Systems
+                </span>
+
+              </div>
+
+            </div>
+
+          </div>
+
+          <!-- STUDENT APPS -->
+
+          <div class="project-card">
+
+            <div class="project-header">
+
+              <div class="project-label">
+                Building & Mentoring
+              </div>
+
+              <h3>
+                20+ Full-Stack Applications
+              </h3>
+
+            </div>
+
+            <div class="project-body">
+
+              <p>
+                While working as a Software Engineering Instructor, I guided
+                learners through the development of more than 20 full-stack
+                applications.
+              </p>
+
+              <div class="project-value">
+
+                <strong>What this demonstrates:</strong>
+
+                <br />
+
+                Turning requirements into systems, breaking complicated
+                problems into manageable workflows, testing solutions and
+                helping other people understand how those systems work.
+
+              </div>
+
+              <div class="tech-stack">
+
+                <span class="tech-badge">
+                  Python
+                </span>
+
+                <span class="tech-badge">
+                  Django
+                </span>
+
+                <span class="tech-badge">
+                  React
+                </span>
+
+                <span class="tech-badge">
+                  Node.js
+                </span>
+
+                <span class="tech-badge">
+                  SQL
+                </span>
+
+              </div>
+
+            </div>
+
+          </div>
+
         </div>
+
       </div>
+
     </section>
 
-    <!-- Teaching & Curriculum Section -->
-    <section class="teaching" id="teaching">
+    <!-- =========================
+         AI / AUTOMATION EXPERIMENTS
+    ========================= -->
+
+    <section class="experiments">
+
       <div class="container">
-        <h2 class="section-title">Teaching & Curriculum Development</h2>
+
+        <h2 class="section-title">
+          AI & Automation Mindset
+        </h2>
+
         <p class="section-subtitle">
-          Empowering the next generation of backend developers
+          I don't believe in adding AI just because it is fashionable.
+          I care about whether it actually makes work better.
+        </p>
+
+        <div class="experiment-box">
+
+          <h3>
+            What I'm actively interested in
+          </h3>
+
+          <p>
+            My engineering background has made me naturally curious about
+            repetitive workflows and how they can be improved through
+            software, APIs and AI.
+          </p>
+
+          <ul class="experiment-list">
+
+            <li>
+              Identifying repetitive tasks that can be automated.
+            </li>
+
+            <li>
+              Using APIs and software integrations to remove unnecessary
+              manual steps.
+            </li>
+
+            <li>
+              Exploring AI-powered workflows for communication and
+              collaboration.
+            </li>
+
+            <li>
+              Using AI as a development and problem-solving partner.
+            </li>
+
+            <li>
+              Testing small ideas before investing heavily in them.
+            </li>
+
+            <li>
+              Keeping humans involved when decisions require context,
+              judgment or sensitivity.
+            </li>
+
+          </ul>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- =========================
+         TEACHING
+    ========================= -->
+
+    <section class="teaching">
+
+      <div class="container">
+
+        <h2 class="section-title">
+          People, Teaching & Communication
+        </h2>
+
+        <p class="section-subtitle">
+          Technology only creates value when people can understand and use it.
         </p>
 
         <div class="teaching-grid">
-          <div class="curriculum-card">
-            <div class="curriculum-icon">📚</div>
-            <h3>Backend Development Curriculum</h3>
-            <p>Comprehensive 12-week program covering:</p>
+
+          <div class="teaching-card">
+
+            <h3>
+              Training & Mentorship
+            </h3>
+
             <ul>
+
               <li>
-                Introduction to Server-Side Programming (Node.js fundamentals)
+                Trained and mentored 30+ software engineering students.
               </li>
-              <li>RESTful API Design & Best Practices</li>
-              <li>Database Design & Management (SQL & NoSQL)</li>
-              <li>Authentication & Authorization (JWT, OAuth)</li>
-              <li>Real-Time Applications (WebSockets, Socket.io)</li>
-              <li>API Security & Performance Optimization</li>
-              <li>Testing & Deployment Strategies</li>
-              <li>Microservices Architecture Basics</li>
+
+              <li>
+                Explained complex technical concepts in practical,
+                accessible ways.
+              </li>
+
+              <li>
+                Conducted code reviews and technical assessments.
+              </li>
+
+              <li>
+                Helped learners troubleshoot and improve their projects.
+              </li>
+
+              <li>
+                Guided students through projects from idea to deployment.
+              </li>
+
             </ul>
+
           </div>
 
-          <div class="curriculum-card">
-            <div class="curriculum-icon">🎯</div>
-            <h3>Teaching Methodology</h3>
-            <p>My approach to effective technical education:</p>
+          <div class="teaching-card">
+
+            <h3>
+              How I Work With People
+            </h3>
+
             <ul>
+
               <li>
-                <strong>Project-Based Learning:</strong> Students build 5+
-                real-world projects
+                I ask questions before jumping to solutions.
               </li>
+
               <li>
-                <strong>Hands-On Coding:</strong> 70% practical, 30% theory
-                ratio
+                I try to understand the user's actual problem.
               </li>
+
               <li>
-                <strong>Code Reviews:</strong> Weekly peer and instructor
-                reviews
+                I communicate technical ideas in simple language.
               </li>
+
               <li>
-                <strong>Industry Standards:</strong> Teaching current best
-                practices used in production
+                I welcome feedback and iterate.
               </li>
+
               <li>
-                <strong>Mentorship:</strong> One-on-one support for struggling
-                students
+                I document what I build so others can understand and use it.
               </li>
-              <li>
-                <strong>Portfolio Development:</strong> Each student graduates
-                with deployable projects
-              </li>
+
             </ul>
+
           </div>
 
-          <div class="curriculum-card">
-            <div class="curriculum-icon">💼</div>
-            <h3>Sample Student Projects</h3>
-            <p>Real projects students built under my guidance:</p>
-            <ul>
-              <li>
-                <strong>E-Learning Platform API:</strong> Student built complete
-                backend with authentication, course management, and payment
-                integration
-              </li>
-              <li>
-                <strong>Social Media Backend:</strong> REST API with user
-                profiles, posts, comments, likes, and real-time notifications
-              </li>
-              <li>
-                <strong>Inventory Management System:</strong> CRUD operations,
-                reporting, and stock alerts for retail business
-              </li>
-              <li>
-                <strong>Blog Platform:</strong> Full-featured backend with
-                markdown support, categories, tags, and comments
-              </li>
-              <li>
-                <strong>Task Tracker API:</strong> Team collaboration tool with
-                role-based access and WebSocket updates
-              </li>
-            </ul>
-          </div>
-
-          <div class="curriculum-card">
-            <div class="curriculum-icon">🎓</div>
-            <h3>Lesson Plan Example: RESTful APIs</h3>
-            <div class="lesson-plan">
-              <p><strong>Duration:</strong> 4 weeks (12 sessions)</p>
-              <p><strong>Week 1:</strong> REST Principles & HTTP Methods</p>
-              <ul style="margin-left: 20px">
-                <li>Understanding REST architecture</li>
-                <li>HTTP methods (GET, POST, PUT, DELETE, PATCH)</li>
-                <li>Status codes and their meanings</li>
-                <li>Project: Build a simple CRUD API for a Todo app</li>
-              </ul>
-              <p>
-                <strong>Week 2:</strong> Request/Response Handling & Validation
-              </p>
-              <ul style="margin-left: 20px">
-                <li>Request body, params, and query parameters</li>
-                <li>Data validation and sanitization</li>
-                <li>Error handling patterns</li>
-                <li>Project: Add validation and error handling to Todo API</li>
-              </ul>
-              <p><strong>Week 3:</strong> Authentication & Authorization</p>
-              <ul style="margin-left: 20px">
-                <li>JWT token implementation</li>
-                <li>Middleware for protected routes</li>
-                <li>Role-based access control</li>
-                <li>Project: Secure the API with authentication</li>
-              </ul>
-              <p><strong>Week 4:</strong> Best Practices & Documentation</p>
-              <ul style="margin-left: 20px">
-                <li>API versioning strategies</li>
-                <li>Rate limiting and pagination</li>
-                <li>Swagger/OpenAPI documentation</li>
-                <li>Final Project: Fully documented, production-ready API</li>
-              </ul>
-            </div>
-          </div>
         </div>
+
       </div>
+
     </section>
 
-    <!-- Testimonials Section -->
-    <section class="testimonials">
-      <div class="container">
-        <h2 class="section-title" style="color: white">What People Say</h2>
-        <p class="section-subtitle" style="color: #cbd5e1">
-          Testimonials from students, colleagues, and mentors
-        </p>
+    <!-- =========================
+         CONTACT
+    ========================= -->
 
-        <div class="testimonials-grid">
-          <div class="testimonial-card">
-            <div class="quote-icon">"</div>
-            <p class="testimonial-text">
-              Mr. Samuel is a great teacher. I know it may sound cheesy, but he
-              truly made a positive impact on me. He ensured that every student
-              participated in class, valued our opinions even in the smallest
-              discussions, and always created a comfortable learning
-              environment. Although I didn't spend a long time with him as my
-              teacher, his influence stayed with me.
-            </p>
-            <div class="testimonial-author">
-              <div class="author-info">
-                <h4>Olajide Toluwalope Mary</h4>
-                <p>Former Student, Aptech Computer Education</p>
-                <p class="student-outcome">
-                  Now a 300-level student at Anchor University
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div class="testimonial-card">
-            <div class="quote-icon">"</div>
-            <p class="testimonial-text">
-              Working with Samuel at MyFund was a great experience. His ability
-              to design scalable backend systems while mentoring junior
-              developers is remarkable. He writes clean, maintainable code and
-              always thinks about performance optimization.
-            </p>
-            <div class="testimonial-author">
-              <div class="author-info">
-                <h4>Dr. Tolulope Ahmed</h4>
-                <p>CEO, MyFund</p>
-                <p class="reference-contact">Reference Available</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="testimonial-card">
-            <div class="quote-icon">"</div>
-            <p class="testimonial-text">
-              I came to Samuel's class with zero programming experience. His
-              patience and structured curriculum helped me build 5 projects in
-              12 weeks. The weekly code reviews taught me best practices that I
-              still use today. He genuinely cares about student success.
-            </p>
-            <div class="testimonial-author">
-              <div class="author-info">
-                <h4>Felix Divine</h4>
-                <p>Former Student, Aptech Computer Education</p>
-                <p class="student-outcome">Passed Certification Exam (92%)</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="testimonial-card">
-            <div class="quote-icon">"</div>
-            <p class="testimonial-text">
-              Samuel's technical expertise combined with his teaching ability is
-              rare. He updated our curriculum to include modern tools like
-              Docker and CI/CD pipelines. Student feedback improved by 95% under
-              his instruction. He's an asset to any educational program.
-            </p>
-            <div class="testimonial-author">
-              <div class="author-info">
-                <h4>Department Head</h4>
-                <p>Aptech Computer Education</p>
-                <p class="reference-contact">Port Harcourt, Nigeria</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Gallery Section -->
-    <section class="gallery" id="gallery">
-      <div class="container">
-        <h2 class="section-title">In Action</h2>
-        <p class="section-subtitle">
-          Behind the scenes of teaching and development
-        </p>
-
-        <div class="gallery-grid">
-          <div class="gallery-item">
-            <img
-              src="1.jpg"
-              alt="Teaching in class"
-              onerror="this.src='https://via.placeholder.com/400x300/2563eb/ffffff?text=Explaining+Technical+Concepts'"
-            />
-            <div class="gallery-overlay">
-              <p>Lecture In Progress</p>
-            </div>
-          </div>
-
-          <div class="gallery-item">
-            <img
-              src="2.jpg"
-              alt="Working on project"
-              onerror="this.src='https://via.placeholder.com/400x300/10b981/ffffff?text=Coding+Session'"
-            />
-            <div class="gallery-overlay">
-              <p>Q&A Session</p>
-            </div>
-          </div>
-
-          <div class="gallery-item">
-            <img
-              src="3.jpg"
-              alt="Mentoring students"
-              onerror="this.src='https://via.placeholder.com/400x300/f59e0b/ffffff?text=Student+Mentoring'"
-            />
-            <div class="gallery-overlay">
-              <p>Project Presentation</p>
-            </div>
-          </div>
-
-          <div class="gallery-item">
-            <img
-              src="4.jpeg"
-              alt="Team collaboration"
-              onerror="this.src='https://via.placeholder.com/400x300/8b5cf6/ffffff?text=Team+Collaboration'"
-            />
-            <div class="gallery-overlay">
-              <p>Online Training Session</p>
-            </div>
-          </div>
-
-          <div class="gallery-item">
-            <img
-              src="5.png"
-              alt="Code review session"
-              onerror="this.src='https://via.placeholder.com/400x300/ec4899/ffffff?text=Code+Review'"
-            />
-            <div class="gallery-overlay">
-              <p>Online Class</p>
-            </div>
-          </div>
-
-          <div class="gallery-item">
-            <img
-              src="6.png"
-              alt="Presentation"
-              onerror="this.src='https://via.placeholder.com/400x300/06b6d4/ffffff?text=Tech+Presentation'"
-            />
-            <div class="gallery-overlay">
-              <p>Online Q&A Session</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Contact Section -->
     <section class="contact" id="contact">
+
       <div class="container">
-        <h2 class="section-title" style="color: white">Let's Work Together</h2>
-        <p class="section-subtitle" style="color: #cbd5e1">
-          I'm always open to discussing new projects and opportunities
+
+        <h2 class="section-title">
+          Let's Build Something Useful
+        </h2>
+
+        <p class="section-subtitle">
+          I'm interested in problems where technology, people and better
+          processes intersect.
         </p>
 
         <div class="contact-grid">
+
           <div class="contact-card">
-            <div class="contact-icon">📧</div>
+
+            <div class="contact-icon">
+              📧
+            </div>
+
             <h3>Email</h3>
-            <a href="mailto:samuelojedele2003@gmail.com"
-              >samuelojedele2003@gmail.com</a
-            >
+
+            <a href="mailto:samuelojedele2003@gmail.com">
+              samuelojedele2003@gmail.com
+            </a>
+
           </div>
 
           <div class="contact-card">
-            <div class="contact-icon">📱</div>
+
+            <div class="contact-icon">
+              📱
+            </div>
+
             <h3>Phone</h3>
-            <a href="tel:+2347055440792">+234 (0)7055440792</a>
+
+            <a href="tel:+2347055440792">
+              +234 705 544 0792
+            </a>
+
           </div>
 
           <div class="contact-card">
-            <div class="contact-icon">💼</div>
+
+            <div class="contact-icon">
+              💼
+            </div>
+
             <h3>LinkedIn</h3>
-            <a href="https://www.linkedin.com/in/samuelojedele/" target="_blank"
-              >linkedin.com/in/samuelojedele</a
+
+            <a
+              href="https://www.linkedin.com/in/samuelojedele/"
+              target="_blank"
             >
+              linkedin.com/in/samuelojedele
+            </a>
+
           </div>
 
           <div class="contact-card">
-            <div class="contact-icon">💻</div>
+
+            <div class="contact-icon">
+              💻
+            </div>
+
             <h3>GitHub</h3>
-            <a href="https://github.com/samuelojedele" target="_blank"
-              >github.com/samuelojedele</a
+
+            <a
+              href="https://github.com/samuelojedele"
+              target="_blank"
             >
+              github.com/samuelojedele
+            </a>
+
           </div>
+
         </div>
+
       </div>
+
     </section>
 
-    <!-- Footer -->
+    <!-- =========================
+         FOOTER
+    ========================= -->
+
     <footer>
+
       <div class="container">
-        <p>&copy; 2026 Samuel Toluwani Ojedele. All rights reserved.</p>
-        <p style="margin-top: 10px; font-size: 0.9rem">
-          "Code is like humor. When you have to explain it, it's bad." – Cory
-          House
+
+        <p>
+          © 2026 Samuel Toluwani Ojedele.
         </p>
+
+        <p style="margin-top: 8px; font-size: 0.9rem;">
+          Building systems. Simplifying work. Experimenting with AI.
+        </p>
+
       </div>
+
     </footer>
 
-    <script>
-      // Smooth scroll for all anchor links
-      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-        anchor.addEventListener("click", function (e) {
-          e.preventDefault();
-          const target = document.querySelector(this.getAttribute("href"));
-          if (target) {
-            target.scrollIntoView({
-              behavior: "smooth",
-              block: "start",
-            });
-          }
-        });
-      });
+    <!-- =========================
+         JAVASCRIPT
+    ========================= -->
 
-      // Mobile menu toggle
+    <script>
+
+      // Mobile navigation
+
       function toggleMenu() {
-        const navMenu = document.getElementById("navMenu");
+
+        const navMenu =
+          document.getElementById("navMenu");
+
         navMenu.classList.toggle("active");
+
       }
 
       function closeMenu() {
-        const navMenu = document.getElementById("navMenu");
+
+        const navMenu =
+          document.getElementById("navMenu");
+
         navMenu.classList.remove("active");
+
       }
 
-      // Close menu when clicking outside
-      document.addEventListener("click", function (event) {
-        const navMenu = document.getElementById("navMenu");
-        const navToggle = document.querySelector(".nav-toggle");
-        const isClickInside =
-          navMenu.contains(event.target) || navToggle.contains(event.target);
+      // Close mobile menu when clicking outside
 
-        if (!isClickInside && navMenu.classList.contains("active")) {
-          navMenu.classList.remove("active");
+      document.addEventListener(
+        "click",
+        function (event) {
+
+          const navMenu =
+            document.getElementById("navMenu");
+
+          const navToggle =
+            document.querySelector(".nav-toggle");
+
+          const clickedInside =
+            navMenu.contains(event.target) ||
+            navToggle.contains(event.target);
+
+          if (
+            !clickedInside &&
+            navMenu.classList.contains("active")
+          ) {
+
+            navMenu.classList.remove("active");
+
+          }
+
         }
-      });
+      );
+
     </script>
+
   </body>
 </html>
